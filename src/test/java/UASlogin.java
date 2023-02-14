@@ -3,9 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/EmptyTestNGTest.java to edit this template
  */
 
+import static com.google.common.util.concurrent.ClosingFuture.submit;
+import static com.google.common.util.concurrent.Futures.submit;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import static org.bouncycastle.cms.RecipientId.password;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
@@ -45,7 +49,28 @@ public class UASlogin {
     @Test
     public void firstTry(){
         driver.get("http://localhost:3000/index.php");
-        driver.findElement(By.id("username")).click();
+        driver.findElement(By.id("username"));
+        WebElement username=driver.findElement(By.id("username"));
+        username.sendKeys("admin");
+
+        driver.findElement(By.id("password"));
+        WebElement password=driver.findElement(By.id("password"));
+        password.sendKeys("admin");
+        
+        driver.findElement(By.ByXPath('/html/body/div/form/input[3]')).click();
+    }
+    
+    public void secondTry(){
+        driver.get("http://localhost:3000/index.php");
+        driver.findElement(By.id("username"));
+        WebElement username=driver.findElement(By.id("username"));
+        username.sendKeys("hilya");
+
+        driver.findElement(By.id("password"));
+        WebElement password=driver.findElement(By.id("password"));
+        password.sendKeys("hilyatazkia");
+        
+        driver.findElement(By.ByXPath('/html/body/div/form/input[3]')).click();
     }
     
     @AfterTest
