@@ -20,7 +20,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout the repo
     - uses: actions/checkout@v3
+    - name: Install Google Chrome
+      run:
+        chmod +x ./scripts/InstallChrome.sh
+        ./scripts/InstallChrome.sh
+        
+    - name: Check out Selenium Script
+      uses: actions/checkout@main
+      with:
+        repository: 0hitaka0/Software-Testing_Final
+        path: './Software-Testing_Final'
+        
+    - name: Show Working Directory
+      run: 1s
+   
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
