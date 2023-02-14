@@ -48,29 +48,17 @@ public class UASlogin {
     
     @Test
     public void firstTry(){
-        driver.get("http://localhost:3000/index.php");
-        driver.findElement(By.id("username"));
-        WebElement username=driver.findElement(By.id("username"));
-        username.sendKeys("admin");
-
-        driver.findElement(By.id("password"));
-        WebElement password=driver.findElement(By.id("password"));
-        password.sendKeys("admin");
-        
-        driver.findElement(By.ByXPath('/html/body/div/form/input[3]')).click();
+        driver.get("https://localhost/index.php");
+        driver.findElement(By.id("username")).sendKeys("admin");
+        driver.findElement(By.id("password")).sendKeys("admin123");
+        driver.findElement(By.xpath("/html/body/div/form/input[3]")).click();
     }
     
     public void secondTry(){
-        driver.get("http://localhost:3000/index.php");
-        driver.findElement(By.id("username"));
-        WebElement username=driver.findElement(By.id("username"));
-        username.sendKeys("hilya");
-
-        driver.findElement(By.id("password"));
-        WebElement password=driver.findElement(By.id("password"));
-        password.sendKeys("hilyatazkia");
-        
-        driver.findElement(By.ByXPath('/html/body/div/form/input[3]')).click();
+        driver.get("https://localhost/index.php");
+        driver.findElement(By.id("username")).sendKeys("hilya");
+        driver.findElement(By.id("password")).sendKeys("hilyatazkia");
+        driver.findElement(By.xpath("/html/body/div/form/input[3]")).click();
     }
     
     @AfterTest
